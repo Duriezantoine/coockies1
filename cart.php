@@ -1,7 +1,11 @@
-<?php require 'inc/head.php'; ?>
+<?php
+require 'inc/head.php';
+if (!isset($_SESSION['username'])){
+    header('Location: login.php') ; 
+}
+?>
 <section class="cookies container-fluid">
     <div class="row">
-        TODO : Display shopping cart items from $_SESSION here.
-    </div>
+<?php var_dump(S_SESSION['cart']) ?>    </div>
 </section>
 <?php require 'inc/foot.php'; ?>

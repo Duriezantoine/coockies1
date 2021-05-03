@@ -1,4 +1,14 @@
-<?php require 'inc/head.php'; ?>
+<?php require 'inc/head.php'; 
+if ($_SERVER["REQUEST_METHOD"]=== "POST")
+{
+    if (!empty ($_POST ['loginname'])){
+        $_SESSION['username'] = $_POST['loginname'] ; 
+        header('Location: index.php') ; 
+    }
+}
+
+
+?>
 <div class="container" style="margin-top:40px">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
@@ -18,7 +28,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12 col-md-10  col-md-offset-1 ">
-                                    <div class="form-group">
+                                <form method='post'>
+                                      <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                               <i class="glyphicon glyphicon-user"></i>
@@ -30,6 +41,8 @@
                                     <div class="form-group">
                                         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in">
                                     </div>
+                                </form>
+                              
                                 </div>
                             </div>
                         </fieldset>
